@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="callback-form-block">
+    <!--<img src="{% static 'main/images/water_1.png' %}" class="callback-background-image"> -->
+    <div class="wrap">
+
+        <div class="callback-h">Есть вопросы? Оставьте заявку на обратный звонок</div>
+
+        <div class="callback-form">
+
+            <form id="callBackForm" method="post" action="{% url 'main:call_back' %}">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+
+                <div class="form-fields">
+                    {% for f in call_back_form %}
+                        {% if f.name != 'privacy_policy' %}
+
+                        <div class="form-element">
+                            <label for="{{ f.id_for_label }}">{{ f.label }}
+                                {% if f.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ f }}
+                        </div>
+
+                        {% endif %}
+                    {% endfor %}
+                </div>
+
+                <div class="callback-form-submit">
+                    <div class="privacy-policy-container">
+                        {{ call_back_form.privacy_policy }}
+                        <label>
+                            <span>Подтверждаю свое согласие с <a href="{% url 'main:privacy_policy' %}">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Заказать звонок</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+

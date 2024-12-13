@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block content %}
+
+
+<!-- Основной блок -->
+{% include 'main/include/main_block.html' %}
+
+<!-- Блок для заказа обратного звонка -->
+{% include 'main/include/callback_form.html' %}
+
+<!-- Блок с аккредитацией -->
+{% include 'main/include/accreditation_block.html' %}
+
+<!-- Блок как мы работаем -->
+<div class="how-we-work-block">
+    <div class="wrap">
+        <div class="order-service-h">Как мы работаем</div>
+        <ul>
+            <li>
+                <span>1</span>
+                <p>Клиент оставляет заявку на сайте или по телефону</p>
+            </li>
+            <li>
+                <span>2</span>
+                <p>Мастер приезжает в заранее оговоренное время</p>
+            </li>
+            <li>
+                <span>3</span>
+                <p>Выполняет замену счетчиков и оформляет документы</p>
+            </li>
+            <li>
+                <span>4</span>
+                <p>Клиент передает сведения о замене счетчиков через <a href="https://www.mos.ru/services/podacha-svedenij-o-poverke-schetchikov-vody/">mos.ru</a> или в УК</p>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Блок с карточками счетчиков на замену -->
+<div class="service-block">
+    <div class="wrap">
+        <div class="service-content">
+            <div class="service-items">
+                {% for service in water_meter %}
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <div class="service-img">
+                            <img src="{{ service.images_meter.url }}" class="" alt="{{ service.name_meter }}">
+                        </div>
+
+                        <div class="meter-name">
+                            <p>{{ service.name_meter }}</p>
+                        </div>
+
+                        <div class="verification-interval-content">
+                            <span class="verification-interval">Поверочный интервал:</span>
+                            <div>
+                                <span class="hvs">ХВС {{ service.cold_verification_interval }} лет</span>
+                                <span class="gvs">ГВС {{ service.hot_verification_interval }} лет</span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="price-container">
+                            <span>Замена одного: <span class="price">{{ service.price_meter_replacement }}р</span></span>
+                            <span>Замена двух: <span class="price">{{ service.price_meter_replacement|multiply:2 }}р</span></span>
+                        </div>
+
+                        <div class="all_characteristics">
+                            <button class="collapsible">Все характеристики</button>
+                            <div class="collapsible-content">
+                                <div>
+                                    {% if service.name_model %}
+                                    <div class="characteristics_list">
+                                        <span>Модель счетчика:</span>
+                                        <span>{{ service.name_model }}</span>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                    {% if service.country_origin %}
+                                    <div class="characteristics_list">
+                                        <span>Страна производства:</span>
+                                        <span>{{ service.country_origin }}</span>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                    {% if service.length_installation %}
+                                    <div class="characteristics_list">
+                                        <span>Установочная длина (мм):</span>
+                                        <span>{{ service.length_installation }}</span>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                    {% if service.nominal_diameter %}
+                                    <div class="characteristics_list">
+                                        <span>Условный диаметр (мм):</span>
+                                        <span>{{ service.nominal_diameter }}</span>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                    {% if service.pulse_output %}
+                                    <div class="characteristics_list">
+                                        <span>Импульсный выход:</span>
+                                        <span>{% if service.pulse_output %}есть{% else %}нет{% endif %}</span>
+                                    </div>
+                                    <hr>
+                                    {% endif %}
+                                    {% if service.verification_method %}
+                                    <div class="characteristics_list">
+                                        <span>Методика поверки:</span>
+                                        <span>{{ service.verification_method }}</span>
+                                    </div>
+                                    {% endif %}
+                                    {% if service.register_number %}
+                                    <hr>
+                                    <div class="characteristics_list">
+                                        <span>Номер в реестре:</span>
+                                        <span>{{ service.register_number }}</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="button-orange" onclick="scrollToOrderForm()">Заказать {{ service.name_meter }}</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Блок для заказа услуг -->
+{% include 'main/include/order_service.html' %}
+
+
+<!-- Блок с округами работы -->
+<div class="county-block">
+    <div class="wrap">
+        <div class="order-service-h">Работаем во всех округах Москвы</div>
+        <div class="county-container">
+            <div class="county-img">
+                <img src="{% static 'main/images/poverka_schetchikov_v_moskve.png' %}">
+            </div>
+            <div class="county-list">
+                {% for c in county_list %}
+                    <div class="county-item">
+                        <a href="{% url 'main:zamena_schetchikov_vody' c.slug %}">{{ c.name_county }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Блок с ценами -->
+{% include 'main/include/price_block.html' %}
+
+<!-- Блок Аккордеон FAQ -->
+<div class="accordion-body">
+    <div class="wrap">
+        <div class="accordion">
+            <div class="order-service-h">Ответы на частые вопросы</div>
+            <hr>
+            <div class="container">
+                <div class="label">Когда необходимо менять счетчики воды?</div>
+                <div class="content"><p>Счетчики воды необходимо менять, если они вышли из строя, не прошли поверку, или имеются механические повреждения</p></div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="label">Кто отвечает за замену счетчика воды?</div>
+                <div class="content"><p>Ответственность за замену счетчика лежит на собственнике квартиры или дома</p></div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="label">Что включает в себя замена счетчиков воды?</div>
+                <div class="content"><p>Процесс замены счетчика включает в себя демонтаж старого счетчика, установку нового, опломбировка и оформление документов</p></div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="label">Нужно ли уведомлять управляющую компанию о замене счетчика?</div>
+                <div class="content"><p>Да, после замены счетчика рекомендуется уведомить управляющую компанию и предоставить им акт о замене для обновления данных, либо отправить сведения о замене онлайн с помощью сервиса <a href="https://www.mos.ru/services/podacha-svedenij-o-poverke-schetchikov-vody/">mos.ru</a></p></div>
+            </div>
+            <hr>
+            <div class="container">
+                <div class="label">Можно ли заменить счетчик самостоятельно?</div>
+                <div class="content"><p>Замена счетчика может быть выполнена самостоятельно, но рекомендуется обращаться к специалистам, чтобы избежать ошибок и проблем с регистрацией нового счетчика</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

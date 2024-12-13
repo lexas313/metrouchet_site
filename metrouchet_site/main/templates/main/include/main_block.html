@@ -1,0 +1,72 @@
+{% load static %}
+
+<div class="main-block">
+    <div class="wrap">
+        <div class="main-block-text">
+            <h1 class="h1">{{ header_title }} <span class="county-color">{% if county %}{{ county.name_county }}{% else %}Москве{% endif %}</span></h1>
+            <ul class="benefits-list">
+                <li>
+                    <img src="{% static 'main/images/icons/wallet.png' %}">
+                    <span>Прозрачная политика ценообразования</span>
+                </li>
+                <li>
+                    <img src="{% static 'main/images/icons/guarantee-certificate.png' %}">
+                    <span>Гарантия на выполненные работы</span>
+                </li>
+                <li>
+                    <img src="{% static 'main/images/icons/worker.png' %}">
+                    <span>Квалифицированные специалисты</span>
+                </li>
+                <li>
+                    <img src="{% static 'main/images/icons/handshake.png' %}">
+                    <span>Индивидуальный подход к каждому клиенту</span>
+                </li>
+                <li>
+                    <img src="{% static 'main/images/icons/approve.png' %}">
+                    <span>Полное оформление документов</span>
+                </li>
+                <li>
+                    <img src="{% static 'main/images/icons/send.png' %}">
+                    <span>Передаем данные в ФГИС "Аршин"</span>
+                </li>
+                <li class="price-ruble">
+                    <span>
+                    <img src="{% static 'main/images/icons/money-ruble.png' %}">
+                    <span>{{ price_2 }}</span>
+                    </span>
+
+                </li>
+            </ul>
+        </div>
+
+        <img src="{% static 'main/images/water_1.png' %}" class="background-image">
+        <img src="{% static 'main/images/schetchik-vody-econom.png' %}" class="overlay-image-1">
+        <img src="{% static 'main/images/water_2.png' %}" class="overlay-image-2">
+<!--        <div class="service-price-box">-->
+<!--            <p class="service-box">Поверка счетчиков воды</p>-->
+<!--            <span class="price-box">от 499р</span>-->
+<!--        </div>-->
+
+    </div>
+</div>
+
+
+<script>
+    let bgImage = document.querySelector('.background-image');
+    let overlay1 = document.querySelector('.overlay-image-1');
+    let overlay2 = document.querySelector('.overlay-image-2');
+
+    function updatePosition(e) {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        // Используйте requestAnimationFrame для более плавных обновлений
+        requestAnimationFrame(() => {
+            bgImage.style.transform = `translate3d(-${x * 10}px, -${y * 10}px, 0)`;
+            overlay1.style.transform = `translate3d(${x * 20}px, ${y * 20}px, 0)`;
+            overlay2.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
+        });
+    }
+
+    document.addEventListener('mousemove', updatePosition);
+</script>

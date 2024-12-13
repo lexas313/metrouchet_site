@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="price-block">
+    <div class="wrap">
+        <div class="order-service-h">Цены на услуги</div>
+
+        <div class="price-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Услуга</th>
+                        <th>Цена</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for service in service_prices %}
+                    <tr>
+                        <td>{{ service.name_service }}</td>
+                        <td>от {{ service.price }} руб/шт</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<footer class="footer-block">
+    <div class="wrap">
+        <div class="footer-top">
+            <div class="label-footer">
+                <span class="aqua">АКВА</span><span class="technique">ТЕХНИКА</span>
+            </div>
+            <div>
+                <ul class="menu-footer">
+                    <li><a class="{% if request.resolver_match.url_name == 'poverka_schetchikov_vody' %}active{% endif %}" href="{% url 'main:poverka_schetchikov_vody' %}">Поверка счетчиков воды</a></li>
+                    <li><a class="{% if request.resolver_match.url_name == 'zamena_schetchikov_vody' %}active{% endif %}" href="{% url 'main:zamena_schetchikov_vody' %}">Замена счетчиков воды</a> </li>
+                    <li><a class="{% if request.resolver_match.url_name == 'ustanovka_schetchikov_vody' %}active{% endif %}" href="{% url 'main:ustanovka_schetchikov_vody' %}">Установка счетчиков воды</a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <div class="operating-mode-footer">Ежедневно с 9:00 до 20:00</div>
+                <a class="phone-number-footer" href="tel:+75555555555"><i class="ion ion-md-call"></i>+7 (555) 555-55-55</a>
+                <a class="email-footer" href="mailto:info@почта.рф">info@почта.рф</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                Все права защищены © 2018-2024
+            </div>
+            <div>
+                ООО "Компания" ИНН 5555555555
+            </div>
+            <div>
+                Информация, представленная на сайте, не является публичной офертой.
+            </div>
+        </div>
+    </div>
+</footer>

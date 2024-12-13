@@ -1,0 +1,96 @@
+{% load static %}
+
+
+<div class="order-service-form-block" id="order-service-form-block">
+    <!-- <img src="{% static 'main/images/water_1.png' %}" class="callback-background-image"> -->
+    <div class="wrap">
+        <div class="callback-h">Оформите заявку</div>
+        <div class="order-service-h2">Выберите подходящую дату и время</div>
+
+        <div class="order-service-form">
+
+            <form id="orderServiceForm" method="post" action="{% url 'main:order_service' %}">
+                {% csrf_token %}
+
+                <div class="form-elements">
+                    <div class="form-elements-datetime">
+                        <div class="form-element">
+                            {{ order_service_form.service_date }}
+                        </div>
+
+                        <div class="form-time-element">
+                            <div id="id_time_slot" class="radio-buttons">
+                                {% for radio in order_service_form.time_slot %}
+                                <div>
+                                    {{ radio.tag }} <!-- Это радио-кнопка -->
+                                    <label for="{{ radio.id_for_label }}">{{ radio.choice_label }}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-elements-order-contact">
+                        <div class="form-element">
+                            <label for="{{ order_service_form.name_service.id_for_label }}">{{ order_service_form.name_service.label }}
+                                {% if order_service_form.name_service.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ order_service_form.name_service }}
+                        </div>
+
+                        <div class="form-element">
+                            <label for="{{ order_service_form.number_counters.id_for_label }}">{{ order_service_form.number_counters.label }}
+                                {% if order_service_form.number_counters.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ order_service_form.number_counters }}
+                        </div>
+
+                        <div class="form-element">
+                            <label for="{{ order_service_form.address.id_for_label }}">{{ order_service_form.address.label }}
+                                {% if order_service_form.address.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ order_service_form.address }}
+                        </div>
+
+                        <div class="form-element">
+                            <label for="{{ order_service_form.phone_number.id_for_label }}">{{ order_service_form.phone_number.label }}
+                                {% if order_service_form.phone_number.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ order_service_form.phone_number }}
+                        </div>
+
+                        <div class="form-element">
+                            <label for="{{ order_service_form.client_name.id_for_label }}">{{ order_service_form.client_name.label }}
+                                {% if order_service_form.client_name.field.required %}
+                                    <span style="color: red; user-select: none;" title="Обязательно для заполнения">*</span>
+                                {% endif %}
+                            </label>
+                            {{ order_service_form.client_name }}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="callback-form-submit">
+                    <div class="privacy-policy-container">
+                        {{ order_service_form.privacy_policy }}
+                        <label>
+                            <span>Подтверждаю свое согласие с <a href="{% url 'main:privacy_policy' %}">политикой конфиденциальности</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn">Оставить заявку</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

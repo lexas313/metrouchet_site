@@ -1,0 +1,37 @@
+<!-- Navigation bar -->
+<header class="header-container">
+    <div class="pre-header">
+        <div class="wrap">
+            <div class="site-name">Официальный сайт метрологической поверки – Акватех</div>
+            <div class="operating-mode">Ежедневно с 9:00 до 20:00</div>
+            <a class="phone-number" href="tel:+75555555555"><i class="ion ion-md-call"></i>+7 (555) 555-55-55</a>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="wrap">
+            <!-- Logo -->
+            <a href="{% url 'main:index' %}" class="logo">АКВАТЕХ</a>
+
+            <!-- Hamburger icon -->
+            <input class="side-menu" type="checkbox" id="side-menu"/>
+            <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+
+            <!-- Menu -->
+            <nav class="nav">
+                <ul class="menu">
+                    <li><a class="{% if request.resolver_match.url_name == 'poverka_schetchikov_vody' %}active{% endif %}" href="{% url 'main:poverka_schetchikov_vody' %}">Поверка счетчиков воды</a></li>
+                    <li><a class="{% if request.resolver_match.url_name == 'zamena_schetchikov_vody' %}active{% endif %}" href="{% url 'main:zamena_schetchikov_vody' %}">Замена счетчиков воды</a> </li>
+                    <li><a class="{% if request.resolver_match.url_name == 'ustanovka_schetchikov_vody' %}active{% endif %}" href="{% url 'main:ustanovka_schetchikov_vody' %}">Установка счетчиков воды</a></li>
+                </ul>
+                <div class="menu-info">
+                    <div class="operating-mode">Ежедневно с 9:00 до 20:00</div>
+                    <a class="phone-number" href="tel:+75555555555"><i class="ion ion-md-call"></i>+7 (555) 555-55-55</a>
+                </div>
+            </nav>
+
+            <a href="tel:+75555555555" class="handset" role="button"><i class="ion ion-md-call"></i></a>
+            <button class="button-orange" onclick="scrollToOrderForm()">Заказать</button>
+        </div>
+    </div>
+</header>

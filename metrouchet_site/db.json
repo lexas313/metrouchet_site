@@ -1,0 +1,321 @@
+[
+{
+  "model": "main.callback",
+  "pk": 1,
+  "fields": {
+    "creation_date": "2024-09-14T13:04:07.881Z",
+    "question": 1,
+    "phone_number": "+7(925)566-66-66",
+    "client_name": "Анна"
+  }
+},
+{
+  "model": "main.callback",
+  "pk": 2,
+  "fields": {
+    "creation_date": "2024-09-14T13:04:07.881Z",
+    "question": 1,
+    "phone_number": "+7(925)566-66-66",
+    "client_name": "Илья"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 1,
+  "fields": {
+    "name_service": "Поверка счетчиков воды",
+    "price": "500.00",
+    "slug": "poverka-schetchikov-vody"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 2,
+  "fields": {
+    "name_service": "Замена счетчиков воды (на Itelma)",
+    "price": "2800.00",
+    "slug": "zamena-schetchikov-vody-na-itelma"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 3,
+  "fields": {
+    "name_service": "Замена счетчиков воды (на Valtec)",
+    "price": "2800.00",
+    "slug": "zamena-schetchikov-vody-na-valtec"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 4,
+  "fields": {
+    "name_service": "Замена счетчиков воды (на Эконом)",
+    "price": "2450.00",
+    "slug": "zamena-schetchikov-vody-na-ekonom"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 5,
+  "fields": {
+    "name_service": "Установка счетчиков воды (на Itelma)",
+    "price": "4000.00",
+    "slug": "ustanovka-schetchikov-vody-na-itelma"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 6,
+  "fields": {
+    "name_service": "Установка счетчиков воды (на Valtec)",
+    "price": "4000.00",
+    "slug": "ustanovka-schetchikov-vody-na-valtec"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 7,
+  "fields": {
+    "name_service": "Установка счетчиков воды (на Эконом)",
+    "price": "3650.00",
+    "slug": "ustanovka-schetchikov-vody-na-ekonom"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 8,
+  "fields": {
+    "name_service": "Ввод в эксплуатацию + опломбировка",
+    "price": "1000.00",
+    "slug": "vvod-v-ekspluataciyu-oplombirovka"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 9,
+  "fields": {
+    "name_service": "Опломбировка",
+    "price": "750.00",
+    "slug": "oplombirovka"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 10,
+  "fields": {
+    "name_service": "Замена счетчиков воды",
+    "price": "2000.00",
+    "slug": "zamena-schetchikov-vody"
+  }
+},
+{
+  "model": "main.serviceprice",
+  "pk": 11,
+  "fields": {
+    "name_service": "Установка счетчиков воды",
+    "price": "2500.00",
+    "slug": "ustanovka-schetchikov-vody"
+  }
+},
+{
+  "model": "main.timeslot",
+  "pk": 1,
+  "fields": {
+    "start_time": "09:00:00",
+    "end_time": "12:00:00"
+  }
+},
+{
+  "model": "main.timeslot",
+  "pk": 2,
+  "fields": {
+    "start_time": "12:00:00",
+    "end_time": "15:00:00"
+  }
+},
+{
+  "model": "main.timeslot",
+  "pk": 3,
+  "fields": {
+    "start_time": "15:00:00",
+    "end_time": "18:00:00"
+  }
+},
+{
+  "model": "main.orderservice",
+  "pk": 1,
+  "fields": {
+    "creation_date": "2024-09-16T14:55:22.520Z",
+    "name_service": 1,
+    "number_counters": 2,
+    "service_date": "2024-09-16",
+    "time_slot": 1,
+    "address": "Москва, Донецкая улица, 30к2",
+    "phone_number": "+79690120008",
+    "client_name": "Дмитрий"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 1,
+  "fields": {
+    "name_county": "ЦАО",
+    "full_name_county": "Центральный административный округ",
+    "slug": "cao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 2,
+  "fields": {
+    "name_county": "САО",
+    "full_name_county": "Северный административный округ",
+    "slug": "sao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 3,
+  "fields": {
+    "name_county": "СВАО",
+    "full_name_county": "Северо-Восточный административный округ",
+    "slug": "svao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 4,
+  "fields": {
+    "name_county": "ВАО",
+    "full_name_county": "Восточный административный округ",
+    "slug": "vao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 5,
+  "fields": {
+    "name_county": "ЮВАО",
+    "full_name_county": "Юго-Восточный административный округ",
+    "slug": "yuvao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 6,
+  "fields": {
+    "name_county": "ЮАО",
+    "full_name_county": "Южный административный округ",
+    "slug": "yuao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 7,
+  "fields": {
+    "name_county": "ЮЗАО",
+    "full_name_county": "Юго-Западный административный округ",
+    "slug": "yuzao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 8,
+  "fields": {
+    "name_county": "ЗАО",
+    "full_name_county": "Западный административный округ",
+    "slug": "zao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 9,
+  "fields": {
+    "name_county": "СЗАО",
+    "full_name_county": "Северо-Западный административный округ",
+    "slug": "szao"
+  }
+},
+{
+  "model": "main.county",
+  "pk": 10,
+  "fields": {
+    "name_county": "НАО",
+    "full_name_county": "Новомосковский административный округ",
+    "slug": "nao"
+  }
+},
+{
+  "model": "main.watermeter",
+  "pk": 1,
+  "fields": {
+    "name_meter": "ЭКО НОМ",
+    "name_model": "СВ 15-80",
+    "country_origin": "Россия",
+    "factory_manufacturer": "ООО «Дюкс»",
+    "length_installation": "80.00",
+    "nominal_diameter": "15.00",
+    "pulse_output": 0,
+    "fittings_included": 0,
+    "service_life": 12,
+    "guarantee": 60,
+    "verification_method": "МИ 1592-2015",
+    "cold_verification_interval": 6,
+    "hot_verification_interval": 6,
+    "register_number": "76699-19",
+    "price_meter": "450.00",
+    "price_meter_replacement": "2450.00",
+    "price_meter_installation": "3650.00",
+    "images_meter": "images_meters/schetchik-vody-econom80.png"
+  }
+},
+{
+  "model": "main.watermeter",
+  "pk": 2,
+  "fields": {
+    "name_meter": "ITELMA",
+    "name_model": "WFK2/WFW2",
+    "country_origin": "Россия",
+    "factory_manufacturer": "ООО «НПП «ИБС»",
+    "length_installation": "80.00",
+    "nominal_diameter": "15.00",
+    "pulse_output": 0,
+    "fittings_included": 0,
+    "service_life": 12,
+    "guarantee": 71,
+    "verification_method": "МИ 1592-2015",
+    "cold_verification_interval": 6,
+    "hot_verification_interval": 6,
+    "register_number": "54418-13",
+    "price_meter": "800.00",
+    "price_meter_replacement": "2800.00",
+    "price_meter_installation": "4000.00",
+    "images_meter": "images_meters/schetchik-vidy-itelma80.png"
+  }
+},
+{
+  "model": "main.watermeter",
+  "pk": 3,
+  "fields": {
+    "name_meter": "VALTEC",
+    "name_model": "VLF-U",
+    "country_origin": "Россия",
+    "factory_manufacturer": "ООО «Спутник»",
+    "length_installation": "80.00",
+    "nominal_diameter": "15.00",
+    "pulse_output": 1,
+    "fittings_included": 0,
+    "service_life": 12,
+    "guarantee": 60,
+    "verification_method": "МИ 1592-2015",
+    "cold_verification_interval": 6,
+    "hot_verification_interval": 6,
+    "register_number": "58362-20",
+    "price_meter": "800.00",
+    "price_meter_replacement": "2800.00",
+    "price_meter_installation": "4000.00",
+    "images_meter": "images_meters/schetchik-vody-valtec80.png"
+  }
+}
+]

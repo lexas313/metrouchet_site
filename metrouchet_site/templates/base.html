@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ru">
+<head>
+
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'main/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.6.3/css/ionicons.min.css">
+
+    <!-- Favicon -->
+    {% include 'favicon.html' %}
+
+    <!-- Подключение стилей Air Datepicker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.0.0/air-datepicker.css">
+
+    <!-- Подключение библиотеки Air Datepicker -->
+    <script src="https://cdn.jsdelivr.net/npm/air-datepicker@3.0.0/air-datepicker.js"></script>
+
+
+</head>
+<body>
+<!-- Меню -->
+{% include 'menu.html' %}
+
+
+<div class="main-container">
+
+    <div class="main-content">
+        {% block breadcrumbs %}{% endblock %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
+
+
+<!-- Whatsapp -->
+<a class="mobile_whatsapp" href="whatsapp://send?text=&amp;phone=+75555555555&amp;abid=+75555555555"></a>
+
+<!-- Footer -->
+{% include 'footer.html' %}
+
+
+<!-- Подключение popup -->
+{% include 'main/include/popup.html' %}
+<script src="{% static 'main/js/popup.js' %}"></script>
+
+<!-- Подключение масок -->
+<script src="https://unpkg.com/imask"></script>
+<script src="{% static 'main/js/mask.js' %}"></script>
+
+<!-- Подключение air date picker инициализация -->
+<script src="{% static 'main/js/air_date_picker_init.js' %}"></script>
+
+<!-- Подключение js для отправки форм по ajax -->
+<script src="{% static 'main/js/form_submit_ajax.js' %}"></script>
+
+<!-- Подключение js для прокрутки до блока -->
+<script src="{% static 'main/js/scroll_to.js' %}"></script>
+
+<!-- Развертывание/свертывание характеристик счетчиков -->
+<script src="{% static 'main/js/collapsible_characteristics.js' %}"></script>
+
+<!-- Аккордеон FAQ -->
+<script src="{% static 'main/js/accordion_faq.js' %}"></script>
+
+</body>
+</html>
